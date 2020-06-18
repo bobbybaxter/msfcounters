@@ -1,0 +1,8 @@
+// TODO: fill out character.json
+{
+  "data": [{
+    "name": "",
+    "base_id": "", // needs to be image id,
+    "url": "/game-asset/u/CHARACTER_BASE_ID",
+  }]
+}
