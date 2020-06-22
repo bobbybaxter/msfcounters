@@ -56,9 +56,9 @@ export default function MyNavbar(props) {
   // TODO: Add proptypes
   // TODO: Add tests
   return (
-      <div className="MyNavbar">
-        <Navbar color="dark" dark expand="md">
-          <NavbarBrand>MSF Counters</NavbarBrand>
+      <div className="MyNavbar ult300">
+        <Navbar dark expand="md">
+          <NavbarBrand className="ult500">MSF Counters</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto text-center" navbar>

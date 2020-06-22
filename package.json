@@ -13,7 +13,6 @@
     "bootstrap": "^4.5.0",
     "concurrently": "^5.2.0",
     "dotenv": "^8.2.0",
-    "eslint": "^7.2.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "firebase": "^7.15.1",
     "history": "^5.0.0",
@@ -36,7 +35,7 @@
     "deploy": "npm run build && gh-pages -d build",
     "server": "LOG_LEVEL=debug nodemon server/index.js | pino-pretty",
     "dev": "concurrently \"npm run server\" \"npm start\"",
-    "client:deploy": "npm run build && aws s3 sync build/ s3://saiastrange.com"
+    "client:deploy": "npm run build && aws s3 sync build/ s3://msfcounters.com"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -41,7 +41,7 @@ const Counters = (props) => {
 
   const togglePatreonButton = props.user.patreonId
     ? ''
-    : <div className="py-3">
+    : <div className="py-3 ult300">
         <a href="https://patreon.com/saiastrange" className="btn patreonBtn">SUPPORT US ON PATREON!</a>
       </div>;
 
@@ -86,9 +86,9 @@ const Counters = (props) => {
           {/* {toggleTopAd} */}
 
           <div className="columnTitles">
-            <h1 className="col-3 mb-0">{view === 'normal' ? 'Opponent' : 'Counter'}</h1>
+            <h1 className="col-3 mb-0 ult300">{view === 'normal' ? 'Opponent' : 'Counter'}</h1>
             <div className="col-7">
-              <h1 className="mb-0">{view === 'normal' ? ' Counters' : ' Opponents'}</h1>
+              <h1 className="mb-0 ult300">{view === 'normal' ? ' Counters' : ' Opponents'}</h1>
               <small className="m-0 p-0 text-secondary">
                 {
                   view === 'normal'
@@ -97,7 +97,7 @@ const Counters = (props) => {
                 }
               </small>
             </div>
-            <Button className="btn-sm col-2 reverseCounterButton" onClick={handleReverseCounter}>
+            <Button className="btn-sm btn-warning col-2 reverseCounterButton ult300" onClick={handleReverseCounter}>
               {view === 'normal' ? 'Normal View' : 'Reverse View'}
             </Button>
           </div>
@@ -109,7 +109,7 @@ const Counters = (props) => {
           <footer className="mt-3">
             {/* {toggleBottomAd} */}
 
-            <div className="d-flex flex-row justify-content-center align-items-center">
+            <div className="d-flex flex-row justify-content-center align-items-center mb-3">
               <span className="hardCounterColorBox"></span>
                 <h6 className="mb-0 mr-4">Hard Counter</h6>
               <span className="softCounterColorBox"></span>

@@ -31,19 +31,21 @@ export default function CounterRow(props) {
             <div className="opponentCard">
               <img
                 className="toonImg grayImg"
-                src={opponentTeam.leaderImage}
+                src={opponentTeam.faceImage}
                 title={opponentTeam.name}
                 alt={opponentTeam.name}
               />
-              <h6 className="teamName">{opponentTeam.name}</h6>
+              <h6 className="teamName ult300">{opponentTeam.name}</h6>
             </div>
           </div>
 
           {/* Right Side Counter Div */}
           <div className="countersRow col-9 border-dark border-bottom border-left">
             <div className="insideCountersRow">
+              {/* <h2 className="rowHeaders">HARD</h2> */}
               <BuildHardCounters counterTeams={counterTeams} toggle={toggle} />
               {divider}
+              {/* <h2 className="rowHeaders">SOFT</h2> */}
               <BuildSoftCounters counterTeams={counterTeams} toggle={toggle} />
             </div>
           </div>

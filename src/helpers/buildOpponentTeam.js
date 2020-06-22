@@ -10,7 +10,8 @@ export default function buildOpponentTeam(matchupToBuild, allTeams, allCharacter
 
   // adds fields needed to display on CounterRow and BuildDescriptions
   if (filteredTeam) {
-    matchup.oppLeaderName = filteredTeam.leaderName;
+    matchup.oppFaceName = filteredTeam.faceName;
+    matchup.oppToon1Name = filteredTeam.toon1Name;
     matchup.oppToon2Name = filteredTeam.toon2Name;
     matchup.oppToon3Name = filteredTeam.toon3Name;
     matchup.oppToon4Name = filteredTeam.toon4Name;
@@ -19,7 +20,7 @@ export default function buildOpponentTeam(matchupToBuild, allTeams, allCharacter
     matchup.oppSubs = filteredTeam.subs;
     matchup.oppDetails = filteredTeam.description;
     matchup.oppCounterStrategy = filteredTeam.counterStrategy;
-    return buildSquad(matchup, 5, allCharacters);
+    return buildSquad(matchup, allCharacters);
   }
 
   return [];

@@ -6,7 +6,12 @@
   "proxy": "http://127.0.0.1:5000",
   "scripts": {
     "test": "jest --coverage",
-    "start": "node server.js"
+    "test:ci": "jest",
+    "test:watch": "jest --watch",
+    "cover:show": "open ./coverage/index.html",
+    "start": "LOG_LEVEL=debug node index.js | pino-pretty",
+    "dev": "LOG_LEVEL=debug nodemon index.js | pino-pretty",
+    "fix-node-modules": "find ./node_modules/* -mtime +10950 -exec touch {} \\;"
   },
   "repository": {
     "type": "git",
@@ -27,6 +32,7 @@
     "express-pino-logger": "^5.0.0",
     "firebase": "^7.15.1",
     "firebase-admin": "^8.12.1",
+    "google-spreadsheet": "^3.0.11",
     "patreon": "^0.4.1",
     "pino": "^6.3.2",
     "require-directory": "^2.1.1"

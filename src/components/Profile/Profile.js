@@ -37,7 +37,7 @@ export default function Profile(props) {
         onChange={props.handleUsername}
       />
     </FormGroup>
-    <Button type="submit" onClick={submitUsername}>Submit</Button>
+    <Button className="ult300" type="submit" onClick={submitUsername}>Submit</Button>
   </Form>;
 
   const handleUnlinkPatreonAccount = () => {
@@ -46,10 +46,10 @@ export default function Profile(props) {
   };
 
   const togglePatreonButton = !props.user.patreonId
-    ? <Button className="btn-sm mr-1" href={patreonLink}>
+    ? <Button className="btn-sm mr-1 ult300" href={patreonLink}>
           Link Patreon
         </Button>
-    : <Button className="btn-sm mr-1" onClick={handleUnlinkPatreonAccount}>
+    : <Button className="btn-sm mr-1 ult300" onClick={handleUnlinkPatreonAccount}>
           Unlink Patreon
         </Button>;
 
@@ -62,7 +62,7 @@ export default function Profile(props) {
         {!props.user.username
           ? ''
           : <Button
-              className="btn-sm"
+              className="btn-sm ult300"
               onClick={clearUsername}
             >Clear Username</Button>
         }

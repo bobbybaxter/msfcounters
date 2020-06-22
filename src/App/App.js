@@ -20,7 +20,7 @@ import getCounterData from '../helpers/data/countersData';
 
 import buildOpponentTeam from '../helpers/buildOpponentTeam';
 import buildSquad from '../helpers/buildSquad';
-import Counters5v5 from '../components/Counters/Counters';
+import Counters from '../components/Counters/Counters';
 
 firebaseConnection();
 
@@ -107,8 +107,8 @@ class App extends React.Component {
           normal.push(this.buildSquadObjects(res, squad, 'normal'));
           reverse.push(this.buildSquadObjects(res, squad, 'reverse'));
         });
-        this.setState({ countersNormal5v5: normal.filter((x) => x !== '') });
-        this.setState({ countersReverse5v5: reverse.filter((x) => x !== '') });
+        this.setState({ countersNormal: normal.filter((x) => x !== '') });
+        this.setState({ countersReverse: reverse.filter((x) => x !== '') });
       })
       .catch((err) => console.error(err));
   };
@@ -201,7 +201,7 @@ class App extends React.Component {
               />
               <div>
                   <Switch>
-                    <Route exact path="/" render={(props) => <Counters5v5
+                    <Route exact path="/" render={(props) => <Counters
                         {...props}
                         user={user}
                         countersNormal={this.state.countersNormal}

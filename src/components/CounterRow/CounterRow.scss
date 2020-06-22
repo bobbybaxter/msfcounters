@@ -1,31 +1,40 @@
 .CounterRow {
   display: flex;
+  background-color: black;
   width: 100%;
   flex-direction: column;
 }
 
-.borderSpace {
-  margin-right: 20px;
-  padding-right: 20px;
+.hardCounterRow {
+  display: flex;
+  flex-flow: row wrap;
+  background-image: linear-gradient(180deg, transparent 50%, rgba(255, 0, 0, 0.75) 125%);
+  height: fit-content;
+  align-self: flex-end;
+  width: auto;
+  padding: 5px 10px;
+}
+
+.softCounterRow {
+  display: flex;
+  flex-flow: row wrap;
+  background-image: linear-gradient(180deg, transparent 50%, #0664B4 125%);
+  height: fit-content;
+  align-self: flex-end;
+  width: auto;
+  padding: 5px 10px;
 }
 
 .countersRow {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  box-shadow: inset 4px 4px 15px rgba(255, 255, 255, 0.1), inset -4px -4px 15px rgba(255, 255, 255, 0.1);
+  padding: 0;
+  box-shadow: inset 1px 1px 10px rgba(255, 255, 255, 0.15), inset -1px -1px 10px rgba(6, 100, 180, 0.15);
 }
 
 .counterCard {
   box-shadow: none;
-}
-
-.counterMiddleBorder {
-  width: 15px;
-  padding: 0 15px;
-  margin: 0 15px;
 }
 
 .countersDetails {
@@ -36,21 +45,17 @@
   }
 }
 
-.grayImg {
-  border: 2px solid gray;
-}
-
-.hardCounter {
-  border: 2px solid #e44747;
+.rowHeaders {
+  writing-mode: tb;
+  text-orientation: upright;
+  font-size: .8rem;
 }
 
 .insideCountersRow {
   display: flex;
   flex-flow: row wrap;
-}
-
-.softCounter {
-  border: 2px solid #9B47E4;
+  height: 100%;
+  width: 100%
 }
 
 .teamName {
@@ -60,26 +65,38 @@
 }
 
 .toonImg {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
+  height: 55px;
   margin: 0 2.5px;
 }
 
 @media only screen and (min-width:768px) {
   /* for desktop */
   .toonImg {
-    width: 45px;
-    height: 45px;
-  }
-
-  .borderSpace {
-    margin-right: 25px;
-    padding-right: 25px;
+    height: 65px;
   }
 
   .countersDetails {
     font-size: .9rem;
+  }
+
+  .hardCounterRow {
+    display: flex;
+    flex-flow: row wrap;
+    background-image: linear-gradient(180deg, transparent 75%, rgba(255, 0, 0, 0.75) 125%);
+    height: fit-content;
+    align-self: flex-end;
+    width: auto;
+    padding: 5px 10px;
+  }
+  
+  .softCounterRow {
+    display: flex;
+    flex-flow: row wrap;
+    background-image: linear-gradient(180deg, transparent 75%, #0664B4 125%);
+    height: fit-content;
+    align-self: flex-end;
+    width: auto;
+    padding: 5px 10px;
   }
 
 }
@@ -87,13 +104,7 @@
 @media only screen and (min-width:992px) {
   /* for desktop */
   .toonImg {
-    width: 55px;
-    height: 55px;
-  }
-
-  .borderSpace {
-    margin-right: 29px;
-    padding-right: 29px;
+    height: 85px;
   }
 
   .countersDetails {
@@ -104,13 +115,7 @@
 @media only screen and (min-width:1200px) {
   /* for desktop */
   .toonImg {
-    width: 65px;
-    height: 65px;
-  }
-
-  .borderSpace {
-    margin-right: 35px;
-    padding-right: 35px;
+    height: 100px;
   }
 
   .countersDetails {

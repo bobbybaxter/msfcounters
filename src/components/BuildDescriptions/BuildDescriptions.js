@@ -101,7 +101,7 @@ export default function BuildDescriptions(props) {
 
               {/* Left Side of Card */}
               <div className="detailsDivLeft col-6 border-dark border-right">
-                <h6 className="text-secondary">{leftSideTitle}</h6>
+                <h6 className="text-secondary ult300">{leftSideTitle}</h6>
                 <h5>{name}</h5>
                 <div className="detailsToonRow mb-2">
                   <img alt={toon1Name} className="toonImg grayImg" title={toon1Name} src={toon1Image} />
@@ -116,7 +116,7 @@ export default function BuildDescriptions(props) {
 
               {/* Right Side of Card */}
               <div className="detailsDivRight col-6">
-                <h6 className="text-secondary">{rightSideTitle}</h6>
+                <h6 className="text-secondary ult300">{rightSideTitle}</h6>
                 <h5>{oppTeamName}</h5>
                 <div className="detailsToonRow mb-2">
                   <img alt={oppToon1Name} className="toonImg grayImg" title={oppToon1Name} src={oppToon1Image} />

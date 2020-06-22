@@ -1,10 +1,15 @@
 const axios = require('axios');
+const parseGoogleSheet = require('../../../helpers/parseGoogleSheet');
 
-const { squadSheet } = require('../../../.config.json');
+const { sheetId, apiKey } = require('../../../.config.json');
 
-// TODO: need to parse raw google sheets data
+// TODO: find out why app is undefined!
+
 module.exports = (app) => new Promise((resolve, reject) => {
-  axios.get(squadSheet)
-    .then((res) => resolve(res.data))
+  axios.get(`https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Teams?key=${apiKey}`)
+    .then((res) => {
+      const parsedData = parseGoogleSheet(res.data.values);
+      resolve(parsedData);
+    })
     .catch((err) => reject(err));
 });

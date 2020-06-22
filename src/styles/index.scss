@@ -1,14 +1,64 @@
-// TODO: restyle the app to fit Marvel Strike Force
-// TODO: import MSF fonts
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;1,300;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
+
+@font-face {
+  font-family: 'UltimusLight';
+  src: url('./fonts/UltimusLight.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'UltimusRegular';
+  src: url('./fonts/UltimusRegular.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'UltimusMedium';
+  src: url('./fonts/UltimusMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'UltimusBold';
+  src: url('./fonts/UltimusBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
 
 body {
   background-color: black;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: "Nunito", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.ult100 {
+  font-family: 'UltimusLight', "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.ult300 {
+  font-family: 'UltimusRegular', "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.ult500 {
+  font-family: 'UltimusMedium', "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.ult700 {
+  font-family: 'UltimusBold', "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
 code {
@@ -17,7 +67,8 @@ code {
 }
 
 p {
-  font-family: "Roboto Condensed",
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: .75rem;
 }
 
 .columnTitles {
@@ -27,7 +78,7 @@ p {
   h1 {
     font-size: 1.2rem;
   }
-  font-size: .85rem;
+  font-size: .7rem;
 }
 
 .contentWrapper {
@@ -47,16 +98,21 @@ p {
   font-size: .7rem;
   text-align: center;
   padding: .25rem;
+  box-shadow: inset 4px 4px 15px rgba(0, 0, 0, 0.15), inset -4px -4px 15px rgba(255, 255, 255, 0.15);
 }
 
 @media only screen and (min-width:600px) {
+  p {
+    font-size: .85rem;
+  }
+
   .reverseCounterButton {
     font-size: .75rem;
   }
 }
 
 @media only screen and (min-width:768px) {
-  .reverseCounterButton {
+  p {
     font-size: 1rem;
   }
 
@@ -72,5 +128,9 @@ p {
     h5 {
       font-size: 1.2rem;
     }
+  }
+
+  .reverseCounterButton {
+    font-size: 1rem;
   }
 }
