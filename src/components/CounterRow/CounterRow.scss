@@ -1,0 +1,125 @@
+.CounterRow {
+  display: flex;
+  background-color: black;
+  width: 100%;
+  flex-direction: column;
+}
+
+.hardCounterRow {
+  display: flex;
+  flex-flow: row wrap;
+  background-image: linear-gradient(180deg, transparent 50%, rgba(255, 0, 0, 0.75) 125%);
+  height: fit-content;
+  align-self: flex-end;
+  width: auto;
+  padding: 5px 10px;
+}
+
+.softCounterRow {
+  display: flex;
+  flex-flow: row wrap;
+  background-image: linear-gradient(180deg, transparent 50%, #0664B4 125%);
+  height: fit-content;
+  align-self: flex-end;
+  width: auto;
+  padding: 5px 10px;
+}
+
+.countersRow {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  padding: 0;
+  box-shadow: inset 1px 1px 10px rgba(255, 255, 255, 0.15), inset -1px -1px 10px rgba(6, 100, 180, 0.15);
+}
+
+.counterCard {
+  box-shadow: none;
+}
+
+.countersDetails {
+  font-size: .85rem;
+
+  p {
+    margin: 8px 0;
+  }
+}
+
+.rowHeaders {
+  writing-mode: tb;
+  text-orientation: upright;
+  font-size: .8rem;
+}
+
+.insideCountersRow {
+  display: flex;
+  flex-flow: row wrap;
+  height: 100%;
+  width: 100%
+}
+
+.teamName {
+  font-weight: 400;
+  font-size: .8rem;
+  margin: 0;
+}
+
+.toonImg {
+  height: 55px;
+  margin: 0 2.5px;
+}
+
+@media only screen and (min-width:768px) {
+  /* for desktop */
+  .toonImg {
+    height: 65px;
+  }
+
+  .countersDetails {
+    font-size: .9rem;
+  }
+
+  .hardCounterRow {
+    display: flex;
+    flex-flow: row wrap;
+    background-image: linear-gradient(180deg, transparent 75%, rgba(255, 0, 0, 0.75) 125%);
+    height: fit-content;
+    align-self: flex-end;
+    width: auto;
+    padding: 5px 10px;
+  }
+  
+  .softCounterRow {
+    display: flex;
+    flex-flow: row wrap;
+    background-image: linear-gradient(180deg, transparent 75%, #0664B4 125%);
+    height: fit-content;
+    align-self: flex-end;
+    width: auto;
+    padding: 5px 10px;
+  }
+
+}
+
+@media only screen and (min-width:992px) {
+  /* for desktop */
+  .toonImg {
+    height: 85px;
+  }
+
+  .countersDetails {
+    font-size: .95rem;
+  }
+}
+
+@media only screen and (min-width:1200px) {
+  /* for desktop */
+  .toonImg {
+    height: 100px;
+  }
+
+  .countersDetails {
+    font-size: 1rem;
+  }
+}
+

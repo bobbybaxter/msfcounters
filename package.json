@@ -1,20 +1,41 @@
 {
   "name": "msfcounters",
+  "homepage": "http://msfcounters.com",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://127.0.0.1:5000",
+  "scarfSettings.enabled": false,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
+    "concurrently": "^5.2.0",
+    "dotenv": "^8.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "firebase": "^7.15.1",
+    "history": "^5.0.0",
+    "jquery": "^3.5.1",
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.4",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-ga": "^3.0.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "reactstrap": "^8.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start --ignore server",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && gh-pages -d build",
+    "server": "LOG_LEVEL=debug nodemon server/index.js | pino-pretty",
+    "dev": "concurrently \"npm run server\" \"npm start\"",
+    "client:deploy": "npm run build && aws s3 sync build/ s3://msfcounters.com"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,5 +51,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "pino-pretty": "^4.0.0"
   }
 }
