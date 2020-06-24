@@ -1,28 +1,26 @@
 import React from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-// import {
-//   BrowserRouter, Redirect, Route, Switch,
-// } from 'react-router-dom';
+import {
+  BrowserRouter, Redirect, Route, Switch,
+} from 'react-router-dom';
 import ReactGA from 'react-ga';
 
-import MyNavbar from '../components/MyNavbar';
-import Profile from './profile';
-import SubmissionForm from './submissionForm';
+import MyNavbar from '../components/MyNavbar/MyNavbar';
+import Profile from '../components/Profile/Profile';
+import SubmissionForm from '../components/SubmissionForm/SubmissionForm';
 
 import firebaseConnection from '../helpers/data/firebaseConnection';
 import firebaseData from '../helpers/data/firebaseData';
 
+import './App.scss';
 import characterData from '../helpers/data/characters.json';
 import getSquadData from '../helpers/data/squadsData';
 import getCounterData from '../helpers/data/countersData';
 
 import buildOpponentTeam from '../helpers/buildOpponentTeam';
 import buildSquad from '../helpers/buildSquad';
-import Counters from '../components/Counters';
-import Head from 'next/head';
-
-import '../styles/counters.module.scss';
+import Counters from '../components/Counters/Counters';
 
 firebaseConnection();
 
@@ -194,58 +192,40 @@ class App extends React.Component {
   render() {
     const { authenticated, user } = this.state;
     return (
-      <>
-        <Head>
-          <link 
-            href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;1,300;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" 
-            rel="stylesheet"
-            key="google-fonts"
-          />
-        </Head>
-        <div className="App">
-          <MyNavbar
-            authenticated={authenticated}
-            handleLogout={this.handleLogout}
-          />
-          <Counters 
-            user={user}
-            countersNormal={this.state.countersNormal}
-            countersReverse={this.state.countersReverse}
-          />
-          {/* <BrowserRouter basename="/" hashType="slash">
-              <React.Fragment>
-                <MyNavbar
-                  authenticated={authenticated}
-                  handleLogout={this.handleLogout}
-                />
-                <div>
-                    <Switch>
-                      <Route exact path="/" render={(props) => <Counters
-                          {...props}
-                          user={user}
-                          countersNormal={this.state.countersNormal}
-                          countersReverse={this.state.countersReverse}
-                        />
-                      } />
-                      <Route exact path="/submit" component={ SubmissionForm } />
-
-                      <PrivateRoute
-                        path="/profile"
-                        authenticated={authenticated}
-                        component={Profile}
-                        handleClearUsername={this.handleClearUsername}
-                        handleUsername={this.handleUsername}
-                        unlinkPatreonAccount={this.unlinkPatreonAccount}
+      <div className="App">
+        <BrowserRouter basename="/" hashType="slash">
+            <React.Fragment>
+              <MyNavbar
+                authenticated={authenticated}
+                handleLogout={this.handleLogout}
+              />
+              <div>
+                  <Switch>
+                    <Route exact path="/" render={(props) => <Counters
+                        {...props}
                         user={user}
+                        countersNormal={this.state.countersNormal}
+                        countersReverse={this.state.countersReverse}
                       />
+                    } />
+                    <Route exact path="/submit" component={ SubmissionForm } />
 
-                      <Redirect from="*" to="/" />
-                    </Switch>
-                </div>
-              </React.Fragment>
-          </BrowserRouter> */}
-        </div>
-      </>
+                    <PrivateRoute
+                      path="/profile"
+                      authenticated={authenticated}
+                      component={Profile}
+                      handleClearUsername={this.handleClearUsername}
+                      handleUsername={this.handleUsername}
+                      unlinkPatreonAccount={this.unlinkPatreonAccount}
+                      user={user}
+                    />
+
+                    <Redirect from="*" to="/" />
+                  </Switch>
+              </div>
+            </React.Fragment>
+        </BrowserRouter>
+      </div>
     );
   }
 }

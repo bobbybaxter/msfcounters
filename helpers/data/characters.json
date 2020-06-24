@@ -1,0 +1,752 @@
+{
+  "data": [{
+    "name": "A.I.M. Assaulter",
+    "base_id": "AimAssaulter",
+    "image": "/game-asset/u/AIMAssaulter"
+  },
+  {
+    "name": "A.I.M. Infector",
+    "base_id": "AIMInfector",
+    "image": "/game-asset/u/AIMInfector"
+  },
+  {
+    "name": "A.I.M. Monstrosity",
+    "base_id": "AIMMonstrosity",
+    "image": "/game-asset/u/AIMMonstrosity"
+  },
+  {
+    "name": "A.I.M. Researcher",
+    "base_id": "AIMResearcher",
+    "image": "/game-asset/u/AIMResearcher"
+  },
+  {
+    "name": "A.I.M. Security",
+    "base_id": "AIMSecurity",
+    "image": "/game-asset/u/AIMSecurity"
+  },
+  {
+    "name": "Agent Coulson",
+    "base_id": "AgentCoulson",
+    "image": "/game-asset/u/AgentCoulson"
+  },
+  {
+    "name": "America Chavez",
+    "base_id": "AmericaChavez",
+    "image": "/game-asset/u/AmericaChavez"
+  },
+  {
+    "name": "Ant-Man",
+    "base_id": "AntMan",
+    "image": "/game-asset/u/AntMan"
+  },
+  {
+    "name": "Beast",
+    "base_id": "Beast",
+    "image": "/game-asset/u/Beast"
+  },
+  {
+    "name": "Black Bolt",
+    "base_id": "BlackBolt",
+    "image": "/game-asset/u/BlackBolt"
+  },
+  {
+    "name": "Black Panther",
+    "base_id": "BlackPanther",
+    "image": "/game-asset/u/BlackPanther"
+  },
+  {
+    "name": "Black Widow",
+    "base_id": "BlackWidow",
+    "image": "/game-asset/u/BlackWidow"
+  },
+  {
+    "name": "Blank",
+    "base_id": "Blank",
+    "image": "/game-asset/u/Blank"
+  },
+  {
+    "name": "Blob",
+    "base_id": "Blob",
+    "image": "/game-asset/u/Blob"
+  },
+  {
+    "name": "Bullseye",
+    "base_id": "Bullseye",
+    "image": "/game-asset/u/Bullseye"
+  },
+  {
+    "name": "Cable",
+    "base_id": "Cable",
+    "image": "/game-asset/u/Cable"
+  },
+  {
+    "name": "Captain America",
+    "base_id": "CaptainAmerica",
+    "image": "/game-asset/u/CaptainAmerica"
+  },
+  {
+    "name": "Captain Marvel",
+    "base_id": "CaptainMarvel",
+    "image": "/game-asset/u/CaptainMarvel"
+  },
+  {
+    "name": "Carnage",
+    "base_id": "Carnage",
+    "image": "/game-asset/u/Carnage"
+  },
+  {
+    "name": "Colossus",
+    "base_id": "Colossus",
+    "image": "/game-asset/u/Colossus"
+  },
+  {
+    "name": "Corvus Glaive",
+    "base_id": "CorvusGlaive",
+    "image": "/game-asset/u/CorvusGlaive"
+  },
+  {
+    "name": "Crossbones",
+    "base_id": "Crossbones",
+    "image": "/game-asset/u/Crossbones"
+  },
+  {
+    "name": "Crystal",
+    "base_id": "Crystal",
+    "image": "/game-asset/u/Crystal"
+  },
+  {
+    "name": "Cull Obsidian",
+    "base_id": "CullObsidian",
+    "image": "/game-asset/u/CullObsidian"
+  },
+  {
+    "name": "Cyclops",
+    "base_id": "Cyclops",
+    "image": "/game-asset/u/Cyclops"
+  },
+  {
+    "name": "Daredevil",
+    "base_id": "Daredevil",
+    "image": "/game-asset/u/Daredevil"
+  },
+  {
+    "name": "Dark Phoenix",
+    "base_id": "DarkPhoenix",
+    "image": "/game-asset/u/DarkPhoenix"
+  },
+  {
+    "name": "Deadpool",
+    "base_id": "Deadpool",
+    "image": "/game-asset/u/Deadpool"
+  },
+  {
+    "name": "Doctor Strange",
+    "base_id": "DoctorStrange",
+    "image": "/game-asset/u/DoctorStrange"
+  },
+  {
+    "name": "Domino",
+    "base_id": "Domino",
+    "image": "/game-asset/u/Domino"
+  },
+  {
+    "name": "Drax",
+    "base_id": "Drax",
+    "image": "/game-asset/u/Drax"
+  },
+  {
+    "name": "Ebony Maw",
+    "base_id": "EbonyMaw",
+    "image": "/game-asset/u/EbonyMaw"
+  },
+  {
+    "name": "Elektra",
+    "base_id": "Elektra",
+    "image": "/game-asset/u/Elektra"
+  },
+  {
+    "name": "Elsa Bloodstone",
+    "base_id": "ElsaBloodstone",
+    "image": "/game-asset/u/ElsaBloodstone"
+  },
+  {
+    "name": "Falcon",
+    "base_id": "Falcon",
+    "image": "/game-asset/u/Falcon"
+  },
+  {
+    "name": "Gamora",
+    "base_id": "Gamora",
+    "image": "/game-asset/u/Gamora"
+  },
+  {
+    "name": "Ghost Rider",
+    "base_id": "GhostRider",
+    "image": "/game-asset/u/GhostRider"
+  },
+  {
+    "name": "Graviton",
+    "base_id": "Graviton",
+    "image": "/game-asset/u/Graviton"
+  },
+  {
+    "name": "Green Goblin",
+    "base_id": "GreenGoblin",
+    "image": "/game-asset/u/GreenGoblin"
+  },
+  {
+    "name": "Greg",
+    "base_id": "Greg",
+    "image": "/game-asset/u/Greg"
+  },
+  {
+    "name": "Groot",
+    "base_id": "Groot",
+    "image": "/game-asset/u/Groot"
+  },
+  {
+    "name": "Hand Archer",
+    "base_id": "HandArcher",
+    "image": "/game-asset/u/HandArcher"
+  },
+  {
+    "name": "Hand Assassin",
+    "base_id": "HandAssassin",
+    "image": "/game-asset/u/HandAssassin"
+  },
+  {
+    "name": "Hand Blademaster",
+    "base_id": "HandBlademaster",
+    "image": "/game-asset/u/HandBlademaster"
+  },
+  {
+    "name": "Hand Sentry",
+    "base_id": "HandSentry",
+    "image": "/game-asset/u/HandSentry"
+  },
+  {
+    "name": "Hand Sorceress",
+    "base_id": "HandSorceress",
+    "image": "/game-asset/u/HandSorceress"
+  },
+  {
+    "name": "Hawkeye",
+    "base_id": "Hawkeye",
+    "image": "/game-asset/u/Hawkeye"
+  },
+  {
+    "name": "Heimdall",
+    "base_id": "Heimdall",
+    "image": "/game-asset/u/Heimdall"
+  },
+  {
+    "name": "Hela",
+    "base_id": "Hela",
+    "image": "/game-asset/u/Hela"
+  },
+  {
+    "name": "Hulk",
+    "base_id": "Hulk",
+    "image": "/game-asset/u/Hulk"
+  },
+  {
+    "name": "Human Torch",
+    "base_id": "HumanTorch",
+    "image": "/game-asset/u/HumanTorch"
+  },
+  {
+    "name": "Hydra Armored Guard",
+    "base_id": "HydraArmoredGuard",
+    "image": "/game-asset/u/HydraArmoredGuard"
+  },
+  {
+    "name": "Hydra Grenadier",
+    "base_id": "HydraGrenadier",
+    "image": "/game-asset/u/HydraGrenadier"
+  },
+  {
+    "name": "Hydra Rifle Trooper",
+    "base_id": "HydraRifleTrooper",
+    "image": "/game-asset/u/HydraRifleTrooper"
+  },
+  {
+    "name": "Hydra Scientist",
+    "base_id": "HydraScientist",
+    "image": "/game-asset/u/HydraScientist"
+  },
+  {
+    "name": "Hydra Sniper",
+    "base_id": "HydraSniper",
+    "image": "/game-asset/u/HydraSniper"
+  },
+  {
+    "name": "Invisible Woman",
+    "base_id": "InvisibleWoman",
+    "image": "/game-asset/u/InvisibleWoman"
+  },
+  {
+    "name": "Iron Fist",
+    "base_id": "IronFist",
+    "image": "/game-asset/u/IronFist"
+  },
+  {
+    "name": "Ironheart",
+    "base_id": "Ironheart",
+    "image": "/game-asset/u/Ironheart"
+  },
+  {
+    "name": "Iron Man",
+    "base_id": "IronMan",
+    "image": "/game-asset/u/IronMan"
+  },
+  {
+    "name": "Jessica Jones",
+    "base_id": "JessicaJones",
+    "image": "/game-asset/u/JessicaJones"
+  },
+  {
+    "name": "Juggernaut",
+    "base_id": "Juggernaut",
+    "image": "/game-asset/u/Juggernaut"
+  },
+  {
+    "name": "Karnak",
+    "base_id": "Karnak",
+    "image": "/game-asset/u/Karnak"
+  },
+  {
+    "name": "Killmonger",
+    "base_id": "Killmonger",
+    "image": "/game-asset/u/Killmonger"
+  },
+  {
+    "name": "Kingpin",
+    "base_id": "Kingpin",
+    "image": "/game-asset/u/Kingpin"
+  },
+  {
+    "name": "Korath The Pursuer",
+    "base_id": "KorathThePursuer",
+    "image": "/game-asset/u/KorathThePursuer"
+  },
+  {
+    "name": "Kree Cyborg",
+    "base_id": "KreeCyborg",
+    "image": "/game-asset/u/KreeCyborg"
+  },
+  {
+    "name": "Kree Noble",
+    "base_id": "KreeNoble",
+    "image": "/game-asset/u/KreeNoble"
+  },
+  {
+    "name": "Kree Oracle",
+    "base_id": "KreeOracle",
+    "image": "/game-asset/u/KreeOracle"
+  },
+  {
+    "name": "Kree Reaper",
+    "base_id": "KreeReaper",
+    "image": "/game-asset/u/KreeReaper"
+  },
+  {
+    "name": "Kree Royal Guard",
+    "base_id": "KreeRoyalGuard",
+    "image": "/game-asset/u/KreeRoyalGuard"
+  },
+  {
+    "name": "Loki",
+    "base_id": "Loki",
+    "image": "/game-asset/u/Loki"
+  },
+  {
+    "name": "Luke Cage",
+    "base_id": "LukeCage",
+    "image": "/game-asset/u/LukeCage"
+  },
+  {
+    "name": "Magneto",
+    "base_id": "Magneto",
+    "image": "/game-asset/u/Magneto"
+  },
+  {
+    "name": "Mantis",
+    "base_id": "Mantis",
+    "image": "/game-asset/u/Mantis"
+  },
+  {
+    "name": "M'Baku",
+    "base_id": "MBaku",
+    "image": "/game-asset/u/MBaku"
+  },
+  {
+    "name": "Mercenary Lieutenant",
+    "base_id": "MercenaryLieutenant",
+    "image": "/game-asset/u/MercenaryLieutenant"
+  },
+  {
+    "name": "Mercenary Riot Guard",
+    "base_id": "MercenaryRiotGuard",
+    "image": "/game-asset/u/MercenaryRiotGuard"
+  },
+  {
+    "name": "Mercenary Sniper",
+    "base_id": "MercenarySniper",
+    "image": "/game-asset/u/MercenarySniper"
+  },
+  {
+    "name": "Mercenary Soldier",
+    "base_id": "MercenarySoldier",
+    "image": "/game-asset/u/MercenarySoldier"
+  },
+  {
+    "name": "Mercenary Tank",
+    "base_id": "MercTank_Taunt",
+    "image": "/game-asset/u/MercTank_Taunt"
+  },
+  {
+    "name": "Minn-erva",
+    "base_id": "Minnerva",
+    "image": "/game-asset/u/Minnerva"
+  },
+  {
+    "name": "Mister Fantastic",
+    "base_id": "MisterFantastic",
+    "image": "/game-asset/u/MisterFantastic"
+  },
+  {
+    "name": "Mister Sinister",
+    "base_id": "MisterSinister",
+    "image": "/game-asset/u/MisterSinister"
+  },
+  {
+    "name": "Mordo",
+    "base_id": "Mordo",
+    "image": "/game-asset/u/Mordo"
+  },
+  {
+    "name": "Ms. Marvel",
+    "base_id": "MsMarvel",
+    "image": "/game-asset/u/MsMarvel"
+  },
+  {
+    "name": "Mysterio",
+    "base_id": "Mysterio",
+    "image": "/game-asset/u/Mysterio"
+  },
+  {
+    "name": "Mystique",
+    "base_id": "Mystique",
+    "image": "/game-asset/u/Mystique"
+  },
+  {
+    "name": "Namor",
+    "base_id": "Namor",
+    "image": "/game-asset/u/Namor"
+  },
+  {
+    "name": "Nebula",
+    "base_id": "Nebula",
+    "image": "/game-asset/u/Nebula"
+  },
+  {
+    "name": "Negasonic",
+    "base_id": "Negasonic",
+    "image": "/game-asset/u/Negasonic"
+  },
+  {
+    "name": "Nick Fury",
+    "base_id": "NickFury",
+    "image": "/game-asset/u/NickFury"
+  },
+  {
+    "name": "Night Nurse",
+    "base_id": "NightNurse",
+    "image": "/game-asset/u/NightNurse"
+  },
+  {
+    "name": "Nobu",
+    "base_id": "Nobu",
+    "image": "/game-asset/u/Nobu"
+  },
+  {
+    "name": "Okoye",
+    "base_id": "Okoye",
+    "image": "/game-asset/u/Okoye"
+  },
+  {
+    "name": "Phoenix",
+    "base_id": "Phoenix",
+    "image": "/game-asset/u/Phoenix"
+  },
+  {
+    "name": "Proxima Midnight",
+    "base_id": "ProximaMidnight",
+    "image": "/game-asset/u/ProximaMidnight"
+  },
+  {
+    "name": "Psylocke",
+    "base_id": "Psylocke",
+    "image": "/game-asset/u/Psylocke"
+  },
+  {
+    "name": "Punisher",
+    "base_id": "Punisher",
+    "image": "/game-asset/u/Punisher"
+  },
+  {
+    "name": "Pyro",
+    "base_id": "Pyro",
+    "image": "/game-asset/u/Pyro"
+  },
+  {
+    "name": "Quake",
+    "base_id": "Quake",
+    "image": "/game-asset/u/Quake"
+  },
+  {
+    "name": "Ravager Boomer",
+    "base_id": "RavagerBoomer",
+    "image": "/game-asset/u/RavagerBoomer"
+  },
+  {
+    "name": "Ravager Bruiser",
+    "base_id": "RavagerBruiser",
+    "image": "/game-asset/u/RavagerBruiser"
+  },
+  {
+    "name": "Ravager Stitcher",
+    "base_id": "RavagerStitcher",
+    "image": "/game-asset/u/RavagerStitcher"
+  },
+  {
+    "name": "Red Guardian",
+    "base_id": "RedGuardian",
+    "image": "/game-asset/u/RedGuardian"
+  },
+  {
+    "name": "Red Skull",
+    "base_id": "RedSkull",
+    "image": "/game-asset/u/RedSkull"
+  },
+  {
+    "name": "Rescue",
+    "base_id": "Rescue",
+    "image": "/game-asset/u/Rescue"
+  },
+  {
+    "name": "Rhino",
+    "base_id": "Rhino",
+    "image": "/game-asset/u/Rhino"
+  },
+  {
+    "name": "Rocket Raccoon",
+    "base_id": "RocketRaccoon",
+    "image": "/game-asset/u/RocketRaccoon"
+  },
+  {
+    "name": "Ronan The Accuser",
+    "base_id": "RonanTheAccuser",
+    "image": "/game-asset/u/RonanTheAccuser"
+  },
+  {
+    "name": "Sabretooth",
+    "base_id": "Sabretooth",
+    "image": "/game-asset/u/Sabretooth"
+  },
+  {
+    "name": "Scarlet Witch",
+    "base_id": "ScarletWitch",
+    "image": "/game-asset/u/ScarletWitch"
+  },
+  {
+    "name": "Scientist Supreme",
+    "base_id": "ScientistSupreme",
+    "image": "/game-asset/u/ScientistSupreme"
+  },
+  {
+    "name": "S.H.I.E.L.D. Assault",
+    "base_id": "SHIELDAssault",
+    "image": "/game-asset/u/SHIELDAssault"
+  },
+  {
+    "name": "S.H.I.E.L.D. Medic",
+    "base_id": "SHIELDMedic",
+    "image": "/game-asset/u/SHIELDMedic"
+  },
+  {
+    "name": "S.H.I.E.L.D. Operative",
+    "base_id": "SHIELDOperative",
+    "image": "/game-asset/u/SHIELDOperative"
+  },
+  {
+    "name": "S.H.I.E.L.D. Security",
+    "base_id": "SHIELDSecurity",
+    "image": "/game-asset/u/SHIELDSecurity"
+  },
+  {
+    "name": "S.H.I.E.L.D. Trooper",
+    "base_id": "SHIELDTrooper",
+    "image": "/game-asset/u/SHIELDTrooper"
+  },
+  {
+    "name": "Shocker",
+    "base_id": "Shocker",
+    "image": "/game-asset/u/Shocker"
+  },
+  {
+    "name": "Shuri",
+    "base_id": "Shuri",
+    "image": "/game-asset/u/Shuri"
+  },
+  {
+    "name": "Sif",
+    "base_id": "Sif",
+    "image": "/game-asset/u/Sif"
+  },
+  {
+    "name": "Spider-Man",
+    "base_id": "SpiderMan",
+    "image": "/game-asset/u/SpiderMan"
+  },
+  {
+    "name": "Spider-Man (Miles)",
+    "base_id": "SpiderManMiles",
+    "image": "/game-asset/u/SpiderManMiles"
+  },
+  {
+    "name": "Spider-Man (Symbiote)",
+    "base_id": "SpiderManSymbiote",
+    "image": "/game-asset/u/SpiderManSymbiote"
+  },
+  {
+    "name": "Star-Lord",
+    "base_id": "StarLord",
+    "image": "/game-asset/u/StarLord"
+  },
+  {
+    "name": "Storm",
+    "base_id": "Storm",
+    "image": "/game-asset/u/Storm"
+  },
+  {
+    "name": "Stryfe",
+    "base_id": "Stryfe",
+    "image": "/game-asset/u/Stryfe"
+  },
+  {
+    "name": "Taskmaster",
+    "base_id": "Taskmaster",
+    "image": "/game-asset/u/Taskmaster"
+  },
+  {
+    "name": "Thanos",
+    "base_id": "Thanos",
+    "image": "/game-asset/u/Thanos"
+  },
+  {
+    "name": "The Thing",
+    "base_id": "TheThing",
+    "image": "/game-asset/u/TheThing"
+  },
+  {
+    "name": "Thor",
+    "base_id": "Thor",
+    "image": "/game-asset/u/Thor"
+  },
+  {
+    "name": "Toad",
+    "base_id": "Toad",
+    "image": "/game-asset/u/Toad"
+  },
+  {
+    "name": "Ultimus",
+    "base_id": "Ultimus",
+    "image": "/game-asset/u/Ultimus"
+  },
+  {
+    "name": "Ultron",
+    "base_id": "Ultron",
+    "image": "/game-asset/u/Ultron"
+  },
+  {
+    "name": "Ultron Accelerator",
+    "base_id": "UltronAccelerator",
+    "image": "/game-asset/u/UltronAccelerator"
+  },
+  {
+    "name": "Ultron Defender",
+    "base_id": "UltronDmg_Defense",
+    "image": "/game-asset/u/UltronDmg_Defense"
+  },
+  {
+    "name": "Ultron Fabricator",
+    "base_id": "UltronFabricator",
+    "image": "/game-asset/u/UltronFabricator"
+  },
+  {
+    "name": "Ultron Incinerator",
+    "base_id": "UltronIncinerator",
+    "image": "/game-asset/u/UltronIncinerator"
+  },
+  {
+    "name": "Ultron Tank",
+    "base_id": "UltronTank_Taunt",
+    "image": "/game-asset/u/UltronTank_Taunt"
+  },
+  {
+    "name": "Venom",
+    "base_id": "Venom",
+    "image": "/game-asset/u/Venom"
+  },
+  {
+    "name": "VIP A",
+    "base_id": "VIP_A",
+    "image": "/game-asset/u/VIP_A"
+  },
+  {
+    "name": "Vision",
+    "base_id": "Vision",
+    "image": "/game-asset/u/Vision"
+  },
+  {
+    "name": "Vulture",
+    "base_id": "Vulture",
+    "image": "/game-asset/u/Vulture"
+  },
+  {
+    "name": "War Machine",
+    "base_id": "WarMachine",
+    "image": "/game-asset/u/WarMachine"
+  },
+  {
+    "name": "Wasp",
+    "base_id": "Wasp",
+    "image": "/game-asset/u/Wasp"
+  },
+  {
+    "name": "Winter Soldier",
+    "base_id": "WinterSoldier",
+    "image": "/game-asset/u/WinterSoldier"
+  },
+  {
+    "name": "Wolverine",
+    "base_id": "Wolverine",
+    "image": "/game-asset/u/Wolverine"
+  },
+  {
+    "name": "X-23",
+    "base_id": "X23",
+    "image": "/game-asset/u/X23"
+  },
+  {
+    "name": "Yondu",
+    "base_id": "Yondu",
+    "image": "/game-asset/u/Yondu"
+  },
+  {
+    "name": "Yo-Yo",
+    "base_id": "YoYo",
+    "image": "/game-asset/u/YoYo"
+  }]
+}
