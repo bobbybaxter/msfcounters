@@ -25,7 +25,6 @@ export default function buildTeam(teamToBuild, allCharacters) {
     if (matchedCharacter) {
       const characterImgRoute = matchedCharacter.image.split('/u/').pop().split('/')[0];
       const characterImg = require(`../public/static/characterImages/${characterImgRoute}.png`);
-      console.log('characterImg :>> ', characterImg);
       team[`${optionKey}Id`] = matchedCharacter.base_id;
       team[`${optionKey}Image`] = characterImg.default;
     }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 // import {
@@ -14,8 +14,10 @@ import firebaseConnection from '../helpers/data/firebaseConnection';
 import firebaseData from '../helpers/data/firebaseData';
 
 import characterData from '../helpers/data/characters.json';
-import getSquadData from '../helpers/data/squadsData';
-import getCounterData from '../helpers/data/countersData';
+// import getSquadData from '../helpers/data/squadsData';
+// import getCounterData from '../helpers/data/countersData';
+import { getSquadData } from '../pages/api/squads';
+import { getCounterData } from '../pages/api/counters';
 
 import buildOpponentTeam from '../helpers/buildOpponentTeam';
 import buildSquad from '../helpers/buildSquad';
@@ -48,21 +50,57 @@ const defaultUser = {
   patronStatus: '',
 };
 
-class App extends React.Component {
-  state = {
-    user: defaultUser,
-    data: null,
-    authenticated: false,
-    characters: characterData.data,
-    squads: [],
-    countersNormal: [],
-    countersReverse: [],
-  }
+const getCounters = (counterData, characters, squads, type) => {
+  const counters = squads.map((squad) => buildSquadObjects(counterData, characters, squad, squads, type));
 
-  authenticateUser = (authUser) => {
+  return counters ? (counters.filter((x) => x !== '')) : '';
+}
+
+const buildSquadObjects = (res, characters, squad, squads, view) => {
+  // get the correct counter info
+  const counterInfo = res
+    .filter((x) => (view === 'normal'
+      ? x.opponentTeam === squad.id
+      : x.counterTeam === squad.id
+    ));
+
+  // get the left side squad
+  const leftSideSquad = buildSquad(squad, characters);
+
+  // get the right side squads
+  const rightSideSquads = counterInfo
+    .map((matchup) => buildOpponentTeam(
+      matchup, squads, characters, view,
+    ));
+
+  // put them into an object and push into state
+  const squadObject = rightSideSquads.length ? { leftSideSquad, rightSideSquads } : '';
+  return squadObject;
+}
+
+const App = ( { squadData, counterData } ) => {
+  const [ user, setUser ] = useState(defaultUser);
+  // const [ data, setData] = useState(null);
+  const [ authenticated, setAuthenticated ] = useState(false);
+  const [ characters, setCharacters ] = useState(characterData.data);
+  const [ squads, setSquads ] = useState(squadData || []);
+  const [ countersNormal, setCountersNormal ] = useState(getCounters(counterData, characters, squads, 'normal') || []);
+  const [ countersReverse, setCountersReverse ] = useState(getCounters(counterData, characters, squads, 'reverse') || []);
+
+  // state = {
+  //   user: defaultUser,
+  //   data: null,
+  //   authenticated: false,
+  //   characters: characterData.data,
+  //   squads: [],
+  //   countersNormal: [],
+  //   countersReverse: [],
+  // }
+
+  const authenticateUser = (authUser) => {
     if (authUser) {
       const user = { id: authUser.uid, email: authUser.email };
-      this.validateAccount(user);
+      validateAccount(user);
       firebase.auth().getRedirectResult()
         .then((result) => {
           if (result.credential) {
@@ -70,184 +108,211 @@ class App extends React.Component {
               .then((token) => sessionStorage.setItem('token', token));
           }
         });
-      this.setState({ authenticated: true });
+      setAuthenticated( true );
     } else {
-      this.setState({ authenticated: false });
+      setAuthenticated( false );
     }
   }
 
-  buildSquadObjects = (res, squad, view) => {
-    // get the correct counter info
-    const counterInfo = res
-      .filter((x) => (view === 'normal'
-        ? x.opponentTeam === squad.id
-        : x.counterTeam === squad.id
-      ));
+  // const buildSquadObjects = (res, squad, view) => {
+  //   // get the correct counter info
+  //   const counterInfo = res
+  //     .filter((x) => (view === 'normal'
+  //       ? x.opponentTeam === squad.id
+  //       : x.counterTeam === squad.id
+  //     ));
 
-    // get the left side squad
-    const leftSideSquad = buildSquad(squad, this.state.characters);
+  //   // get the left side squad
+  //   const leftSideSquad = buildSquad(squad, characters);
 
-    // get the right side squads
-    const rightSideSquads = counterInfo
-      .map((matchup) => buildOpponentTeam(
-        matchup, this.state.squads, this.state.characters, view,
-      ));
+  //   // get the right side squads
+  //   const rightSideSquads = counterInfo
+  //     .map((matchup) => buildOpponentTeam(
+  //       matchup, squads, characters, view,
+  //     ));
 
-    // put them into an object and push into state
-    const squadObject = rightSideSquads.length ? { leftSideSquad, rightSideSquads } : '';
-    return squadObject;
-  }
+  //   // put them into an object and push into state
+  //   const squadObject = rightSideSquads.length ? { leftSideSquad, rightSideSquads } : '';
+  //   return squadObject;
+  // }
 
-  getCounters = async () => {
-    await getCounterData()
-      .then((res) => {
-        // seems verbose, but it queues up all of the
-        // counters at once before distributing to child components
-        const normal = [];
-        const reverse = [];
-        this.state.squads.forEach((squad) => {
-          normal.push(this.buildSquadObjects(res, squad, 'normal'));
-          reverse.push(this.buildSquadObjects(res, squad, 'reverse'));
-        });
-        this.setState({ countersNormal: normal.filter((x) => x !== '') });
-        this.setState({ countersReverse: reverse.filter((x) => x !== '') });
-      })
-      .catch((err) => console.error(err));
+  // const getCounters = async () => {
+  //   await getCounterData()
+  //     .then((res) => {
+  //       // seems verbose, but it queues up all of the
+  //       // counters at once before distributing to child components
+  //       const normal = [];
+  //       const reverse = [];
+  //       squads.forEach((squad) => {
+  //         normal.push(buildSquadObjects(data.counters, squad, 'normal'));
+  //         reverse.push(buildSquadObjects(data.counters, squad, 'reverse'));
+  //       });
+  //       setCountersNormal( normal.filter((x) => x !== '') );
+  //       setCountersReverse( reverse.filter((x) => x !== '') );
+  //     })
+  //     .catch((err) => console.error(err));
+  // };
+
+  // const getCounters = async () => {
+  //   await getCounterData()
+  //     .then((res) => {
+  //       // seems verbose, but it queues up all of the
+  //       // counters at once before distributing to child components
+  //       const normal = [];
+  //       const reverse = [];
+  //       squads.forEach((squad) => {
+  //         normal.push(buildSquadObjects(res, squad, 'normal'));
+  //         reverse.push(buildSquadObjects(res, squad, 'reverse'));
+  //       });
+  //       setCountersNormal( normal.filter((x) => x !== '') );
+  //       setCountersReverse( reverse.filter((x) => x !== '') );
+  //     })
+  //     .catch((err) => console.error(err));
+  // };
+
+  // const getSquads = async () => {
+  //   await getSquadData()
+  //     .then((res) => setSquads(res))
+  //     .then(() => getCounters())
+  //     .catch((err) => console.error(err));
+  // };
+
+  // componentDidMount() {
+  //   this.removeListener = firebase.auth().onAuthStateChanged(this.authenticateUser);
+  //   ReactGA.pageview(window.location.pathname);
+  //   this.getSquads();
+  // }
+
+  const handleUsername = (e) => {
+    const userCopy = { ...user };
+    userCopy.username = e.target.value;
+    setUser( userCopy );
   };
 
-  getSquads = async () => {
-    await getSquadData()
-      .then((res) => this.setState({ squads: res }))
-      .then(() => this.getCounters())
-      .catch((err) => console.error(err));
-  };
-
-  componentDidMount() {
-    this.removeListener = firebase.auth().onAuthStateChanged(this.authenticateUser);
-    ReactGA.pageview(window.location.pathname);
-    this.getSquads();
-  }
-
-  handleUsername = (e) => {
-    const user = { ...this.state.user };
-    user.username = e.target.value;
-    this.setState({ user });
-  };
-
-  handleClearAllyCode = () => {
+  const handleClearAllyCode = () => {
     const {
       id, username, email, patreonId, patronStatus,
-    } = this.state;
-    const user = {
+    } = user;
+    const userCopy = {
       id,
       username,
       email,
       patreonId,
       patronStatus,
     };
-    this.setState({ user });
-    firebaseData.updateUserInfo(user);
+    setUser( userCopy );
+    firebaseData.updateUserInfo(userCopy);
   };
 
-  handleLogout = () => {
-    this.setState({ user: defaultUser });
+  const handleLogout = () => {
+    setUser( defaultUser );
   }
 
-  setUserInfo = (res) => {
-    this.setState((prevState) => ({
-      user: {
-        ...prevState.user,
+  const setUserInfo = (res) => {
+    setUser({
+        ...user,
         email: res.email,
         username: res.username,
         id: res.id,
         patreonId: res.patreonId,
         patronStatus: res.patronStatus,
       },
-    }));
+    );
   };
 
-  unlinkPatreonAccount = () => {
-    this.setState((prevState) => ({
-      user: {
-        ...prevState.user,
+  const unlinkPatreonAccount = () => {
+    setUser({
+        ...user,
         patreonId: '',
         patronStatus: '',
-      },
-    }));
+    });
   };
 
-  validateAccount = (user) => {
+  const validateAccount = (user) => {
     firebaseData.getUserByFirebaseAuthUid(user.id)
       .then((res) => {
         if (res !== '') {
-          this.setUserInfo(res);
+          setUserInfo(res);
           return console.log(`Firebase user ${res.email} validated`);
         }
         console.log('No Firebase user found in DB');
         firebaseData.createUser(user)
-          .then((response) => this.setUserInfo(response));
+          .then((response) => setUserInfo(response));
         return console.log('User created in Firebase');
       })
       .catch((err) => console.error(err));
   };
 
-  render() {
-    const { authenticated, user } = this.state;
-    return (
-      <>
-        <Head>
-          <link 
-            href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;1,300;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" 
-            rel="stylesheet"
-            key="google-fonts"
-          />
-        </Head>
-        <div className="App">
-          <MyNavbar
-            authenticated={authenticated}
-            handleLogout={this.handleLogout}
-          />
-          <Counters 
-            user={user}
-            countersNormal={this.state.countersNormal}
-            countersReverse={this.state.countersReverse}
-          />
-          {/* <BrowserRouter basename="/" hashType="slash">
-              <React.Fragment>
-                <MyNavbar
-                  authenticated={authenticated}
-                  handleLogout={this.handleLogout}
-                />
-                <div>
-                    <Switch>
-                      <Route exact path="/" render={(props) => <Counters
-                          {...props}
-                          user={user}
-                          countersNormal={this.state.countersNormal}
-                          countersReverse={this.state.countersReverse}
-                        />
-                      } />
-                      <Route exact path="/submit" component={ SubmissionForm } />
-
-                      <PrivateRoute
-                        path="/profile"
-                        authenticated={authenticated}
-                        component={Profile}
-                        handleClearUsername={this.handleClearUsername}
-                        handleUsername={this.handleUsername}
-                        unlinkPatreonAccount={this.unlinkPatreonAccount}
+  return (
+    <>
+      <Head>
+        <link 
+          href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;1,300;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" 
+          rel="stylesheet"
+          key="google-fonts"
+        />
+      </Head>
+      <div className="App">
+        <MyNavbar
+          authenticated={authenticated}
+          handleLogout={handleLogout}
+        />
+        <Counters 
+          user={user}
+          countersNormal={countersNormal}
+          countersReverse={countersReverse}
+        />
+        {/* <BrowserRouter basename="/" hashType="slash">
+            <React.Fragment>
+              <MyNavbar
+                authenticated={authenticated}
+                handleLogout={this.handleLogout}
+              />
+              <div>
+                  <Switch>
+                    <Route exact path="/" render={(props) => <Counters
+                        {...props}
                         user={user}
+                        countersNormal={this.state.countersNormal}
+                        countersReverse={this.state.countersReverse}
                       />
+                    } />
+                    <Route exact path="/submit" component={ SubmissionForm } />
 
-                      <Redirect from="*" to="/" />
-                    </Switch>
-                </div>
-              </React.Fragment>
-          </BrowserRouter> */}
-        </div>
-      </>
-    );
-  }
+                    <PrivateRoute
+                      path="/profile"
+                      authenticated={authenticated}
+                      component={Profile}
+                      handleClearUsername={this.handleClearUsername}
+                      handleUsername={this.handleUsername}
+                      unlinkPatreonAccount={this.unlinkPatreonAccount}
+                      user={user}
+                    />
+
+                    <Redirect from="*" to="/" />
+                  </Switch>
+              </div>
+            </React.Fragment>
+        </BrowserRouter> */}
+      </div>
+    </>
+  );
+}
+
+const counterDataRequest = () => getCounterData()
+  .then((res) => res)
+  .catch((err) => console.error(err));
+
+const squadDataRequest = () => getSquadData()
+  .then((res) => res)
+  .catch((err) => console.error(err));
+
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const squadData = await squadDataRequest();
+  const counterData = await counterDataRequest();
+
+  return { props: { squadData, counterData } };
 }
 
 export default App;

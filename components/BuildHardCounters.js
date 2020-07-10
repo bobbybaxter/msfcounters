@@ -5,8 +5,6 @@ import React from 'react';
 export default function BuildHardCounters(props) {
   const { counterTeams, toggle } = props;
 
-  // const test = counterTeams.filter((x) => x.isHardCounter === true);
-  // console.log('test :>> ', test);
   const teams = counterTeams
     .filter((x) => x.isHardCounter === true)
     .map((counterTeam) => (

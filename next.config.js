@@ -22,7 +22,6 @@ const sassConfig = {
   }
 }
 
-
 module.exports = withPlugins([
   css,
   [sass, sassConfig],

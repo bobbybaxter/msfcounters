@@ -5,9 +5,9 @@
   "proxy": "http://127.0.0.1:5000",
   "scarfSettings.enabled": false,
   "scripts": {
-    "dev": "next dev",
+    "start-dev": "next dev",
     "server": "LOG_LEVEL=debug nodemon server/index.js | pino-pretty",
-    "dev-env": "concurrently \"npm run server\" \"next dev\"",
+    "dev": "concurrently \"npm run server\" \"next dev\"",
     "build": "next build",
     "start": "next start"
   },
