@@ -8,7 +8,7 @@
 .hardCounterRow {
   display: flex;
   flex-flow: row wrap;
-  background-image: linear-gradient(180deg, transparent 50%, rgba(255, 0, 0, 0.75) 125%);
+  background: linear-gradient(180deg, transparent 10%, rgba(255, 0, 0, 0.75) 125%);
   height: fit-content;
   align-self: flex-end;
   width: auto;
@@ -18,7 +18,7 @@
 .softCounterRow {
   display: flex;
   flex-flow: row wrap;
-  background-image: linear-gradient(180deg, transparent 50%, #0664B4 125%);
+  background: linear-gradient(180deg, transparent 10%, #0664B4 125%);
   height: fit-content;
   align-self: flex-end;
   width: auto;
@@ -82,7 +82,7 @@
   .hardCounterRow {
     display: flex;
     flex-flow: row wrap;
-    background-image: linear-gradient(180deg, transparent 75%, rgba(255, 0, 0, 0.75) 125%);
+    background: linear-gradient(180deg, transparent 50%, rgba(255, 0, 0, 0.75) 125%);
     height: fit-content;
     align-self: flex-end;
     width: auto;
@@ -92,7 +92,7 @@
   .softCounterRow {
     display: flex;
     flex-flow: row wrap;
-    background-image: linear-gradient(180deg, transparent 75%, #0664B4 125%);
+    background: linear-gradient(180deg, transparent 50%, #0664B4 125%);
     height: fit-content;
     align-self: flex-end;
     width: auto;

@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable global-require */
 /* eslint-disable max-len */
@@ -7,12 +8,15 @@ import React, {
 import {
   Button,
 } from 'reactstrap';
+import MetaTags from 'react-meta-tags';
 
 import './Counters.scss';
+// import AdsenseAd from '../AdsenseAd/AdsenseAd';
+
+// const isSnap = navigator.userAgent === 'ReactSnap';
 
 const CounterRow = lazy(() => import('../CounterRow/CounterRow'));
 
-// TODO: consolidate shared code with Counters3v3
 // TODO: Add proptypes
 // TODO: Add tests
 const Counters = (props) => {
@@ -24,7 +28,7 @@ const Counters = (props) => {
 
   const toggleCollapse = (input) => (setCollapse(collapse === input ? null : input));
 
-  const buildCounterRows = selectedCounters.length
+  const buildCounterRows = selectedCounters && selectedCounters.length > 0
     ? selectedCounters.map((counter) => <CounterRow
         collapse={collapse}
         counterTeams={counter.rightSideSquads}
@@ -45,45 +49,34 @@ const Counters = (props) => {
         <a href="https://patreon.com/saiastrange" className="btn patreonBtn">SUPPORT US ON PATREON!</a>
       </div>;
 
-  // TODO: set up google adsense for this site
-  // const toggleTopAd = props.user.patreonId
-  //   ? ''
-  //   : <div>
-  //       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  //       {/* <!-- 5v5 Top ad --> */}
-  //       <ins className="adsbygoogle"
-  //         style={{ display: 'block' }}
-  //         data-ad-client="ca-pub-9103583527998968"
-  //         data-ad-slot="2779553573"
-  //         data-ad-format="auto"
-  //         data-full-width-responsive="true"></ins>
-  //       <script>
-  //         (adsbygoogle = window.adsbygoogle || []).push({});
-  //       </script>
-  //     </div>;
+  // TODO: Update to this when Adsense is approved!
+  // const togglePatreonButton = props.user.patreonId
+  // ? ''
+  // : <div className="py-3">
+  //     <a href="https://patreon.com/saiastrange" className="btn patreonBtn">
+  //       SUPPORT US ON PATREON<br/>
+  //       <small>AND REMOVE ADS!</small>
+  //     </a>
+  // </div>;
 
-  // const toggleBottomAd = props.user.patreonId
+  // const toggleAd = adSlot => (isSnap
   //   ? ''
-  //   : <div>
-  //       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  //       {/* <!-- 5v5 Bottom Ad --> */}
-  //       <ins className="adsbygoogle"
-  //         style={{ display: 'block' }}
-  //         data-ad-client="ca-pub-9103583527998968"
-  //         data-ad-slot="7648736876"
-  //         data-ad-format="auto"
-  //         data-full-width-responsive="true"></ins>
-  //       <script>
-  //         (adsbygoogle = window.adsbygoogle || []).push({});
-  //       </script>
-  //     </div>;
+  //   : <AdsenseAd adSlot={adSlot}/>);
 
   return (
       <div className="Counters">
+        <MetaTags>
+          <title>MSF Counters</title>
+          <meta name="description" content="A Counters Guide for the mobile game Marvel Strike Force"/>
+          <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </MetaTags>
         <div className="contentWrapper">
 
           {togglePatreonButton}
-          {/* {toggleTopAd} */}
+          {/* <div>
+            {props.user.patreonId ? '' : toggleAd('enter_ad_number_here')}
+          </div> */}
 
           <div className="columnTitles">
             <h1 className="col-3 mb-0 ult300">{view === 'normal' ? 'Opponent' : 'Counter'}</h1>
@@ -107,7 +100,10 @@ const Counters = (props) => {
             </div>
           </Suspense>
           <footer className="mt-3">
-            {/* {toggleBottomAd} */}
+          {togglePatreonButton}
+          {/* <div>
+            {props.user.patreonId ? '' : toggleAd('enter_ad_number_here')}
+          </div> */}
 
             <div className="d-flex flex-row justify-content-center align-items-center mb-3">
               <span className="hardCounterColorBox"></span>
@@ -116,8 +112,6 @@ const Counters = (props) => {
                 <h6 className="mb-0">Soft Counter</h6>
             </div>
             <div className="offset-2 col-8 border-dark border-top"></div>
-
-            {togglePatreonButton}
           </footer>
         </div>
       </div>
