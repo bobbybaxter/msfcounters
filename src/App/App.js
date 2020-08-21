@@ -1,46 +1,47 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable max-len */
 import React from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import {
-  BrowserRouter, Redirect, Route, Switch,
+  BrowserRouter,
+  Redirect,
+  Route,
+  Switch,
 } from 'react-router-dom';
 import ReactGA from 'react-ga';
 
+import './App.scss';
+
+// import Account from '../components/Account/Account';
+import Counters from '../components/Counters/Counters';
 import MyNavbar from '../components/MyNavbar/MyNavbar';
-import Profile from '../components/Profile/Profile';
+import NotFound from '../components/NotFound/NotFound';
 import SubmissionForm from '../components/SubmissionForm/SubmissionForm';
 
+import characterData from '../helpers/data/characters.json';
 import firebaseConnection from '../helpers/data/firebaseConnection';
 import firebaseData from '../helpers/data/firebaseData';
-
-import './App.scss';
-import characterData from '../helpers/data/characters.json';
-import getSquadData from '../helpers/data/squadsData';
 import getCounterData from '../helpers/data/countersData';
 
-import buildOpponentTeam from '../helpers/buildOpponentTeam';
-import buildSquad from '../helpers/buildSquad';
-import Counters from '../components/Counters/Counters';
+import addImageRefs from '../helpers/addImageRefs';
 
 firebaseConnection();
 
-const PrivateRoute = ({ component: Component, authenticated, ...rest }) => {
-  const routeChecker = (props) => (authenticated === true
-    ? (<Component {...props} {...rest} />)
-    : (<Redirect to={{ pathname: '/auth', state: { from: props.location } }} />));
-  return <Route {...rest} render={(props) => routeChecker(props)} />;
-};
-
-// const PublicRoute = ({ component: Component, authenticated, ...rest }) => {
-//   const routeChecker = props => (authenticated === false
+// const PrivateRoute = ({ component: Component, authenticated, ...rest }) => {
+//   const routeChecker = (props) => (authenticated === true
 //     ? (<Component {...props} {...rest} />)
-//     : (<Redirect to={{ pathname: '/5v5', state: { from: props.location } }} />));
-//   return <Route {...rest} render={props => routeChecker(props)} />;
+//     : (<Redirect to={{ pathname: '/', state: { from: props.location } }} />));
+//   return <Route {...rest} render={(props) => routeChecker(props)} />;
 // };
+
+const sessionStorageSquads = JSON.parse(sessionStorage.getItem('MsfSquads'));
+const sessionStorageCountersNormal = JSON.parse(sessionStorage.getItem('MsfCountersNormal'));
+const sessionStorageCountersReverse = JSON.parse(sessionStorage.getItem('MsfCountersReverse'));
 
 const defaultUser = {
   id: '',
-  username: '',
+  pid: '',
   email: '',
   patreonId: '',
   patronStatus: '',
@@ -52,9 +53,9 @@ class App extends React.Component {
     data: null,
     authenticated: false,
     characters: characterData.data,
-    squads: [],
-    countersNormal: [],
-    countersReverse: [],
+    squads: sessionStorageSquads || [],
+    countersNormal: sessionStorageCountersNormal || [],
+    countersReverse: sessionStorageCountersReverse || [],
   }
 
   authenticateUser = (authUser) => {
@@ -74,71 +75,44 @@ class App extends React.Component {
     }
   }
 
-  buildSquadObjects = (res, squad, view) => {
-    // get the correct counter info
-    const counterInfo = res
-      .filter((x) => (view === 'normal'
-        ? x.opponentTeam === squad.id
-        : x.counterTeam === squad.id
-      ));
-
-    // get the left side squad
-    const leftSideSquad = buildSquad(squad, this.state.characters);
-
-    // get the right side squads
-    const rightSideSquads = counterInfo
-      .map((matchup) => buildOpponentTeam(
-        matchup, this.state.squads, this.state.characters, view,
-      ));
-
-    // put them into an object and push into state
-    const squadObject = rightSideSquads.length ? { leftSideSquad, rightSideSquads } : '';
-    return squadObject;
-  }
-
   getCounters = async () => {
-    await getCounterData()
-      .then((res) => {
-        // seems verbose, but it queues up all of the
-        // counters at once before distributing to child components
-        const normal = [];
-        const reverse = [];
-        this.state.squads.forEach((squad) => {
-          normal.push(this.buildSquadObjects(res, squad, 'normal'));
-          reverse.push(this.buildSquadObjects(res, squad, 'reverse'));
-        });
-        this.setState({ countersNormal: normal.filter((x) => x !== '') });
-        this.setState({ countersReverse: reverse.filter((x) => x !== '') });
-      })
-      .catch((err) => console.error(err));
-  };
-
-  getSquads = async () => {
-    await getSquadData()
-      .then((res) => this.setState({ squads: res }))
-      .then(() => this.getCounters())
-      .catch((err) => console.error(err));
+    const counters = await getCounterData();
+    console.log('counters :>> ', counters);
+    if (counters) {
+      const countersNormal = addImageRefs(counters.countersNormal, this.state.characters);
+      const countersReverse = addImageRefs(counters.countersReverse, this.state.characters);
+      sessionStorage.setItem('MsfSquads', JSON.stringify(counters.squads));
+      sessionStorage.setItem('MsfCountersNormal', JSON.stringify(countersNormal));
+      sessionStorage.setItem('MsfCountersReverse', JSON.stringify(countersReverse));
+      this.setState({
+        squads: counters.squads,
+        countersNormal,
+        countersReverse,
+      });
+    }
   };
 
   componentDidMount() {
     this.removeListener = firebase.auth().onAuthStateChanged(this.authenticateUser);
     ReactGA.pageview(window.location.pathname);
-    this.getSquads();
+    if (!sessionStorageSquads) {
+      this.getCounters();
+    }
   }
 
-  handleUsername = (e) => {
+  handlePid = (e) => {
     const user = { ...this.state.user };
     user.username = e.target.value;
     this.setState({ user });
   };
 
-  handleClearAllyCode = () => {
+  handleClearPid = () => {
     const {
-      id, username, email, patreonId, patronStatus,
+      id, pid, email, patreonId, patronStatus,
     } = this.state;
     const user = {
       id,
-      username,
+      pid,
       email,
       patreonId,
       patronStatus,
@@ -156,7 +130,7 @@ class App extends React.Component {
       user: {
         ...prevState.user,
         email: res.email,
-        username: res.username,
+        pid: res.pid,
         id: res.id,
         patreonId: res.patreonId,
         patronStatus: res.patronStatus,
@@ -210,16 +184,17 @@ class App extends React.Component {
                     } />
                     <Route exact path="/submit" component={ SubmissionForm } />
 
-                    <PrivateRoute
+                    {/* <PrivateRoute
                       path="/profile"
                       authenticated={authenticated}
-                      component={Profile}
-                      handleClearUsername={this.handleClearUsername}
-                      handleUsername={this.handleUsername}
+                      component={Account}
+                      handleClearPid={this.handleClearPid}
+                      handlePid={this.handlePid}
                       unlinkPatreonAccount={this.unlinkPatreonAccount}
                       user={user}
-                    />
+                    /> */}
 
+                    <Route component={NotFound} />
                     <Redirect from="*" to="/" />
                   </Switch>
               </div>

@@ -140,11 +140,6 @@
     "image": "/game-asset/u/Deadpool"
   },
   {
-    "name": "Doctor Octopus",
-    "base_id": "DoctorOctopus",
-    "image": "/game-asset/u/DoctorOctopus"
-  },
-  {
     "name": "Doctor Strange",
     "base_id": "DoctorStrange",
     "image": "/game-asset/u/DoctorStrange"
@@ -165,11 +160,6 @@
     "image": "/game-asset/u/EbonyMaw"
   },
   {
-    "name": "Electro",
-    "base_id": "Electro",
-    "image": "/game-asset/u/Electro"
-  },
-  {
     "name": "Elektra",
     "base_id": "Elektra",
     "image": "/game-asset/u/Elektra"
@@ -178,11 +168,6 @@
     "name": "Elsa Bloodstone",
     "base_id": "ElsaBloodstone",
     "image": "/game-asset/u/ElsaBloodstone"
-  },
-  {
-    "name": "Emma Frost",
-    "base_id": "EmmaFrost",
-    "image": "/game-asset/u/EmmaFrost"
   },
   {
     "name": "Falcon",
@@ -635,11 +620,6 @@
     "image": "/game-asset/u/SpiderManSymbiote"
   },
   {
-    "name": "Squirrel Girl",
-    "base_id": "SquirrelGirl",
-    "image": "/game-asset/u/SquirrelGirl"
-  },
-  {
     "name": "Star-Lord",
     "base_id": "StarLord",
     "image": "/game-asset/u/StarLord"
@@ -653,11 +633,6 @@
     "name": "Stryfe",
     "base_id": "Stryfe",
     "image": "/game-asset/u/Stryfe"
-  },
-  {
-    "name": "Swarm",
-    "base_id": "Swarm",
-    "image": "/game-asset/u/Swarm"
   },
   {
     "name": "Taskmaster",
@@ -773,10 +748,5 @@
     "name": "Yo-Yo",
     "base_id": "YoYo",
     "image": "/game-asset/u/YoYo"
-  },
-  {
-    "name": "Baron Zemo",
-    "base_id": "Zemo",
-    "image": "/game-asset/u/Zemo"
   }]
 }

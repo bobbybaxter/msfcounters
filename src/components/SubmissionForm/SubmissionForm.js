@@ -2,7 +2,6 @@ import React from 'react';
 
 import './SubmissionForm.scss';
 
-// TODO: build script to submit to Github
 export default function SubmissionForm() {
   return (
     <div className="SubmissionForm">

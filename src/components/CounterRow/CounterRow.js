@@ -42,10 +42,8 @@ export default function CounterRow(props) {
           {/* Right Side Counter Div */}
           <div className="countersRow col-9 border-dark border-bottom border-left">
             <div className="insideCountersRow">
-              {/* <h2 className="rowHeaders">HARD</h2> */}
               <BuildHardCounters counterTeams={counterTeams} toggle={toggle} />
               {divider}
-              {/* <h2 className="rowHeaders">SOFT</h2> */}
               <BuildSoftCounters counterTeams={counterTeams} toggle={toggle} />
             </div>
           </div>
