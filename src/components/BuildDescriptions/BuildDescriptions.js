@@ -48,6 +48,7 @@ export default function BuildDescriptions(props) {
         description: counterDescription,
       } = counterTeam;
 
+      const createTeamDescription = () => ({ __html: description });
       const createCounterDescription = () => ({ __html: counterDescription });
       const createCounterStrategy = () => ({ __html: counterStrategy });
 
@@ -56,7 +57,7 @@ export default function BuildDescriptions(props) {
           if (view === 'normal') {
             return (
               <>
-                {(description) ? (<p className="text-left"><strong className="text-secondary">Details: </strong>{description}</p>) : ''}
+                {(description) ? (<p className="text-left"><strong className="text-secondary">Details: </strong><span dangerouslySetInnerHTML={createTeamDescription()}></span></p>) : ''}
                 {(counterStrategy)
                   ? (<p className="text-left"><strong className="text-secondary">General Strategy: </strong><span dangerouslySetInnerHTML={createCounterStrategy()}></span></p>)
                   : (<p className="text-secondary"><small>You can help me add common substitutions, a general counter strategy, or details about this team by <a href={submissionForm}>submiting an issue.</a></small></p>)}

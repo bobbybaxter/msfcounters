@@ -68,7 +68,6 @@ code {
 
 p {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: .75rem;
 }
 
 .columnTitles {
@@ -102,20 +101,12 @@ p {
 }
 
 @media only screen and (min-width:600px) {
-  p {
-    font-size: .85rem;
-  }
-
   .reverseCounterButton {
     font-size: .75rem;
   }
 }
 
 @media only screen and (min-width:768px) {
-  p {
-    font-size: 1rem;
-  }
-
   .columnTitles {
     h1 {
       font-size: 2rem;

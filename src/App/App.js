@@ -47,6 +47,7 @@ const defaultUser = {
   patronStatus: '',
 };
 
+// TODO: Test Account Page and add in here and navbar when ready
 class App extends React.Component {
   state = {
     user: defaultUser,
