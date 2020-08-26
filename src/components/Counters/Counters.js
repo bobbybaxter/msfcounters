@@ -11,9 +11,9 @@ import {
 import MetaTags from 'react-meta-tags';
 
 import './Counters.scss';
-// import AdsenseAd from '../AdsenseAd/AdsenseAd';
+import AdsenseAd from '../AdsenseAd/AdsenseAd';
 
-// const isSnap = navigator.userAgent === 'ReactSnap';
+const isSnap = navigator.userAgent === 'ReactSnap';
 
 const CounterRow = lazy(() => import('../CounterRow/CounterRow'));
 
@@ -46,22 +46,15 @@ const Counters = (props) => {
   const togglePatreonButton = props.user.patreonId
     ? ''
     : <div className="py-3 ult300">
-        <a href="https://patreon.com/saiastrange" className="btn patreonBtn">SUPPORT US ON PATREON!</a>
-      </div>;
+      <a href="https://patreon.com/saiastrange" className="btn patreonBtn">
+        SUPPORT US ON PATREON<br/>
+        {/* <small>TO REMOVE ADS!</small> */}
+      </a>
+  </div>;
 
-  // TODO: Update to this when Adsense is approved!
-  // const togglePatreonButton = props.user.patreonId
-  // ? ''
-  // : <div className="py-3">
-  //     <a href="https://patreon.com/saiastrange" className="btn patreonBtn">
-  //       SUPPORT US ON PATREON<br/>
-  //       <small>AND REMOVE ADS!</small>
-  //     </a>
-  // </div>;
-
-  // const toggleAd = adSlot => (isSnap
-  //   ? ''
-  //   : <AdsenseAd adSlot={adSlot}/>);
+  const toggleAd = (adSlot) => (isSnap
+    ? ''
+    : <AdsenseAd adSlot={adSlot}/>);
 
   return (
       <div className="Counters">
@@ -74,9 +67,9 @@ const Counters = (props) => {
         <div className="contentWrapper">
 
           {togglePatreonButton}
-          {/* <div>
-            {props.user.patreonId ? '' : toggleAd('enter_ad_number_here')}
-          </div> */}
+          <div>
+            {props.user.patreonId ? '' : toggleAd('5160941772')}
+          </div>
 
           <div className="columnTitles">
             <h1 className="col-3 mb-0 ult300">{view === 'normal' ? 'Opponent' : 'Counter'}</h1>
@@ -99,13 +92,13 @@ const Counters = (props) => {
               {buildCounterRows || ''}
             </div>
           </Suspense>
-          <footer className="mt-3">
+          <footer>
           {togglePatreonButton}
-          {/* <div>
-            {props.user.patreonId ? '' : toggleAd('enter_ad_number_here')}
-          </div> */}
+          <div>
+            {props.user.patreonId ? '' : toggleAd('6118800227')}
+          </div>
 
-            <div className="d-flex flex-row justify-content-center align-items-center mb-3">
+            <div className="pb-3 d-flex flex-row justify-content-center align-items-center mb-3">
               <span className="hardCounterColorBox"></span>
                 <h6 className="mb-0 mr-4">Hard Counter</h6>
               <span className="softCounterColorBox"></span>
