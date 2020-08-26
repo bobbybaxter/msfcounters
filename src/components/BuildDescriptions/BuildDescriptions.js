@@ -134,7 +134,7 @@ export default function BuildDescriptions(props) {
                 </div>
                 {(oppSubs) ? (<p><small><strong className="text-secondary">Subs: </strong>{oppSubs}</small></p>) : ''}
                 {selectDescriptionData('right')}
-                {(video) ? (<Button className="videoButton btn-sm btn-warning ult300 col-2" href={video}>See Video</Button>) : ''}
+                {(video) ? (<Button className="videoButton btn-sm btn-warning ult300" href={video}>See Video</Button>) : ''}
               </div>
             </div>
           </Collapse>
