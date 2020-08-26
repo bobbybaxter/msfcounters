@@ -1,5 +1,7 @@
 import React from 'react';
-import { Collapse } from 'reactstrap';
+import { Button, Collapse } from 'reactstrap';
+
+import './BuildDescriptions.scss';
 
 // TODO: Add proptypes
 // TODO: Add tests
@@ -46,6 +48,7 @@ export default function BuildDescriptions(props) {
         oppCounterStrategy,
         oppDetails,
         description: counterDescription,
+        video,
       } = counterTeam;
 
       const createTeamDescription = () => ({ __html: description });
@@ -131,6 +134,7 @@ export default function BuildDescriptions(props) {
                 </div>
                 {(oppSubs) ? (<p><small><strong className="text-secondary">Subs: </strong>{oppSubs}</small></p>) : ''}
                 {selectDescriptionData('right')}
+                {(video) ? (<Button className="videoButton btn-sm btn-warning ult300 col-2" href={video}>See Video</Button>) : ''}
               </div>
             </div>
           </Collapse>
