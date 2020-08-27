@@ -1,8 +1,7 @@
 {
-  "counterSheet": "",
-  "squadSheet": "",
+  "sheetId": "",
+  "apiKey": "",
   "firebaseDbURL": "",
-  "baseUrl": "http://localhost:5000",
   "patreonClientId": "",
   "patreonClientSecret": ""
 }
