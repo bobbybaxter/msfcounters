@@ -31,7 +31,7 @@
     "express": "^4.17.1",
     "express-pino-logger": "^5.0.0",
     "firebase": "^7.15.1",
-    "firebase-admin": "^8.12.1",
+    "firebase-admin": "^11.4.1",
     "google-spreadsheet": "^3.0.11",
     "patreon": "^0.4.1",
     "pino": "^6.3.2",
